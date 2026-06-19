@@ -92,6 +92,10 @@ def download_youtube_video(url, choice, is_playlist=False, download_path='downlo
         'sleep_interval_requests': 2, # Adds a delay between requests to be polite to the server
         'source_address': '0.0.0.0', # Binds to all available network interfaces
         'cookiesfile': 'cookies.txt', # Path to cookies file for authenticated downloads
+        'sleep_interval': 8,        # Wait AT LEAST 8 seconds between video downloads
+        'max_sleep_interval': 25,   # Wait UP TO 25 seconds (Randomly picks a number between 8 and 25)
+        # 2. Cap the actual download speed
+        #'limit_rate': '4M',         # Limits download speed to 3 Megabytes per second
     }
 
     if is_playlist:
