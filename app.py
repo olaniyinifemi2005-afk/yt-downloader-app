@@ -79,7 +79,7 @@ def download_youtube_video(url, choice, is_playlist=False, download_path='downlo
         is_playlist (bool): Whether the URL should be treated as a playlist.
         download_path (str): The directory to save the video (defaults to current directory).
     """
-
+    cookie_path = os.path.join(os.path.dirname(__file__), 'cookies.txt')
     # Create the download directory if it doesn't exist
     if not os.path.exists(download_path):
         os.makedirs(download_path)
@@ -91,7 +91,7 @@ def download_youtube_video(url, choice, is_playlist=False, download_path='downlo
         'quiet': True,
         'sleep_interval_requests': 2, # Adds a delay between requests to be polite to the server
         'source_address': '0.0.0.0', # Binds to all available network interfaces
-        'cookiesfile': 'cookies.txt', # Path to cookies file for authenticated downloads
+        'cookiesfile': cookie_path, # Path to cookies file for authenticated downloads
         'sleep_interval': 8,        # Wait AT LEAST 8 seconds between video downloads
         'max_sleep_interval': 25,   # Wait UP TO 25 seconds (Randomly picks a number between 8 and 25)
         #'limit_rate': '4M',         # Limits download speed to 3 Megabytes per second
