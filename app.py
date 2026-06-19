@@ -91,6 +91,7 @@ def download_youtube_video(url, choice, is_playlist=False, download_path='downlo
         'quiet': True,
         'sleep_interval_requests': 2, # Adds a delay between requests to be polite to the server
         'source_address': '0.0.0.0', # Binds to all available network interfaces
+        'cookiesfile': 'cookies.txt', # Path to cookies file for authenticated downloads
     }
 
     if is_playlist:
@@ -187,6 +188,7 @@ if st.session_state.file_paths:
                     file_name=file_name,
                     mime="audio/mpeg" if file_path.endswith('.mp3') else "video/mp4"
                 )
+
 
 #"C:\Users\HomePC\Documents\Python\PythonProjects"):
 #https://youtu.be/t_jGAK0LRRk
